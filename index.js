@@ -28,7 +28,7 @@ if (isDevelopment) {
 
 app.get('*', function (request, response) {
 
-  response.sendFile(__dirname + '/public/index.html');
+  response.sendFile(__dirname + '/public/index.ejs');
 });
 
 app.listen(port);

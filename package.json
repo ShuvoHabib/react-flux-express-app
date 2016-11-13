@@ -15,6 +15,8 @@
     "start-prod": "webpack && node index.js --production"
   },
   "dependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
     "express": "^4.14.0",
     "guid": "0.0.12",
     "react": "^15.3.1",
