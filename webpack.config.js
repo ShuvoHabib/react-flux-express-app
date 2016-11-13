@@ -33,7 +33,7 @@ var plugins = [
 isDevelopment && plugins.push(new webpack.HotModuleReplacementPlugin());
 
 module.exports = {
-
+  devtool: 'cheap-module-source-map',
   cache: isDevelopment,
   debug: isDevelopment,
   entry: entry,
