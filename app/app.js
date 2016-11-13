@@ -18,14 +18,15 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('app')
-);
-
+function renderF(){
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('app')
+  );
+}
 groceryItemStore.onChange((items)=>{
   initial = items;
-  render()
+  renderF()
 });
-render();
+renderF();
 
