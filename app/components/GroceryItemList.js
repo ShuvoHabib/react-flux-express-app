@@ -6,7 +6,7 @@ class GroceryItemList extends React.Component {
   render() {
     return (
       <div>
-        <h1>Grocery Listify </h1>
+        <h1>All Items</h1>
         <div>
           {
             this.props.items.map((item, index)=>{

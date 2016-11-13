@@ -4,7 +4,7 @@
 * `$ npm install`
 
 ## Development
-* `$ npm run start-dev`
+* `$ npm run start`
 
 ## Production
 * `$ npm run start-prod`

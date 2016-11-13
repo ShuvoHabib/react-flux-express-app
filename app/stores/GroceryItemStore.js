@@ -2,14 +2,14 @@ import dispatcher from './../dispatcher';
 
 function groceryItemStore(){
   var items = [{
-    name: "Ice Cream"
+    name: "Computer"
   }, {
-    name: "Wafles"
+    name: "iMac"
   }, {
-    name: "Candy",
+    name: "Football",
     purchased: "true"
   }, {
-    name: "Snarks"
+    name: "iPad"
   }];
   var listeners= [];
   function getItems(){

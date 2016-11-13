@@ -1,17 +1,17 @@
 {
-  "name": "react-hot-loader-3-express-example",
-  "productName": "React, React-Router, React-Hot-Loader 3 and Express example",
+  "name": "ReactExpress",
+  "productName": "ReactExpress",
   "version": "0.1.0",
   "description": "",
   "license": "MIT",
-  "repository": "tststs/react-hot-loader-3-express-example",
+  "repository": "ReactExpress",
   "author": {
-    "name": "Tobias Schubert",
-    "email": "contact@tobias-schubert.com",
-    "url": "http://www.tobias-schubert.com"
+    "name": "Shuvo Habib",
+    "email": "me@shuvohabib.com",
+    "url": "http://www.shuvohabib.com"
   },
   "scripts": {
-    "start-dev": "node index.js --development",
+    "start": "node index.js --development",
     "start-prod": "webpack && node index.js --production"
   },
   "dependencies": {
