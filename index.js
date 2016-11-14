@@ -8,7 +8,7 @@ const isDevelopment = process.argv.indexOf('--development') !== -1;
 if (isDevelopment) {
 
   const webpack = require('webpack');
-  const webpackConfig = require('./webpack.config');
+  const webpackConfig = require('./webpack.config.js');
 
   const compiler = webpack(webpackConfig);
 
@@ -28,7 +28,7 @@ if (isDevelopment) {
 
 app.get('*', function (request, response) {
 
-  response.sendFile(__dirname + '/public/index.ejs');
+  response.sendFile(__dirname + '/public/index.js');
 });
 
 app.listen(port);

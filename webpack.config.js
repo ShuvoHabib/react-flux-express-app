@@ -22,7 +22,6 @@ var plugins = [
 
     template: 'app/index.ejs',
     minify: {
-
       removeComments: !isDevelopment,
       collapseWhitespace: !isDevelopment
     },

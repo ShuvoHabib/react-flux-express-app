@@ -23,7 +23,7 @@ class GroceryListAddItem extends React.Component {
   }
   render() {
     return (
-      <div className="grocery-addItem">
+      <div className="grocery-addItem col-md-12">
         <form onSubmit={this.addItem.bind(this)}>
           <input value={this.state.input} onChange={this.handleInputName}/>
           <button>Add Item</button>
