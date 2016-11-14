@@ -4,8 +4,8 @@ import {
   AppContainer
 } from 'react-hot-loader';
 import {render} from 'react-dom';
-import GroceryItemList from './components/GroceryItemList';
-import groceryItemStore from './stores/GroceryItemStore';
+import GroceryItemList from './components/ItemList';
+import groceryItemStore from './stores/ItemStore';
 var initial = groceryItemStore.getItems();
 
 class App extends React.Component {

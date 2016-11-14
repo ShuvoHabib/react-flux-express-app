@@ -1,6 +1,6 @@
 import React from 'react';
-import GroceryItem from './GroceryItem';
-import GroceryListAddItem from './GroceryListAddItem';
+import GroceryItem from './SingleItem';
+import GroceryListAddItem from './ListAddItem';
 
 class GroceryItemList extends React.Component {
   render() {
