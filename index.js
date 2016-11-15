@@ -2,30 +2,24 @@ const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 8081;
 const app = express();
-
+var  items = require('./app/routes/items');
 const isDevelopment = process.argv.indexOf('--development') !== -1;
+app.use('/api/v1/product',items);
 
 if (isDevelopment) {
-
   const webpack = require('webpack');
   const webpackConfig = require('./webpack.config.js');
-
   const compiler = webpack(webpackConfig);
-
   app.use(require('webpack-dev-middleware')(compiler, {
-
     hot: true,
     stats: {
       colors: true
     }
   }));
-
   app.use(require('webpack-hot-middleware')(compiler));
-
 } else {
   app.use(express.static(__dirname + '/public'));
 }
-
 app.get('*', function (request, response) {
 
   response.sendFile(__dirname + '/public/index.js');

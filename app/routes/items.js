@@ -1,4 +1,6 @@
-export default function(app) {
+var express = require("express");
+var router = express.Router()
+
   var items = [{
     name: "Computer"
   }, {
@@ -10,8 +12,9 @@ export default function(app) {
     name: "iPad"
   }];
 
-  app.route('/api/items')
-    .get((req,res)=>{
-      res.send(items);
-    })
-}
+
+    router.get('/items',(req,res)=>{
+      res.json(items);
+    });
+
+    module.exports = router;

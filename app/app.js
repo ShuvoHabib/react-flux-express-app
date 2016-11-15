@@ -6,6 +6,7 @@ import {
 import {render} from 'react-dom';
 import GroceryItemList from './components/ItemList';
 import groceryItemStore from './stores/ItemStore';
+
 var initial = groceryItemStore.getItems();
 
 class App extends React.Component {
@@ -29,4 +30,3 @@ groceryItemStore.onChange((items)=>{
   renderF()
 });
 renderF();
-
