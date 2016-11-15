@@ -3,8 +3,11 @@ const path = require('path');
 const port = process.env.PORT || 8081;
 const app = express();
 var  items = require('./app/routes/items');
+var  parser = require('body-parser');
 const isDevelopment = process.argv.indexOf('--development') !== -1;
 app.use('/api/v1/product',items);
+app.use(parser.json());
+app.use(parser.urlencoded({extended:false}));
 
 if (isDevelopment) {
   const webpack = require('webpack');

@@ -17,8 +17,11 @@
   "dependencies": {
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-1": "^6.16.0",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "guid": "0.0.12",
+    "jquery": "^3.1.1",
+    "nodemon": "^1.11.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.8.0"

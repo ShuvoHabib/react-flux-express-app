@@ -1,16 +1,15 @@
 import dispatcher from './../dispatcher';
+import helper from './../helpers/RestHelper';
 
 function groceryItemStore() {
-  var items = [{
-    name: "Computer"
-  }, {
-    name: "iMac"
-  }, {
-    name: "Football",
-    purchased: "true"
-  }, {
-    name: "iPad"
-  }];
+  var items = [];
+
+  helper.get("api/v1/product/items")
+    .then((data)=> {
+      items = data;
+      triggerListeners();
+    });
+
   var listeners = [];
 
   function getItems() {
@@ -20,15 +19,18 @@ function groceryItemStore() {
   function addGroceryItem(item) {
     items.push(item);
     triggerListeners();
+
+    helper.post("api/v1/product/items", item);
   }
 
-  function deleteGroceryItem(item){
-    var index = items.findIndex((_item)=>{
+  function deleteGroceryItem(item) {
+    var index = items.findIndex((_item)=> {
       return _item.name == item.name
     });
     items.splice(index, 1);
     triggerListeners();
   }
+
   function setGroceryItemBought(item, isBought) {
     var _item = items.filter((a)=>a.name == item.name)[0];
     item.purchased = isBought || false;
@@ -56,10 +58,10 @@ function groceryItemStore() {
           deleteGroceryItem(event.payload);
           break;
         case "buy":
-          setGroceryItemBought(event.payload , true);
+          setGroceryItemBought(event.payload, true);
           break;
         case "unbuy":
-          setGroceryItemBought(event.payload , false);
+          setGroceryItemBought(event.payload, false);
           break;
       }
     }

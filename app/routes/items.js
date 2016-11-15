@@ -9,12 +9,19 @@ var router = express.Router()
     name: "Football",
     purchased: "true"
   }, {
-    name: "iPad"
+    name: "iPads"
   }];
 
 
-    router.get('/items',(req,res)=>{
-      res.json(items);
-    });
+  router.get('/items',(req, res)=>{
+    res.json(items);
+  });
 
-    module.exports = router;
+  router.post('/items',(req,res)=>{
+    req.json(items);
+    var item = req.body;
+    items.push(item);
+  });
+
+
+  module.exports = router;
