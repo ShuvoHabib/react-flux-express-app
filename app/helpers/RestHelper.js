@@ -21,5 +21,15 @@ module.exports = {
         error:error
       })
     })
+  },
+  delete(url){
+    return new Promise((success, error)=> {
+      $.ajax({
+        url:url,
+        type:"DELETE",
+        success:success,
+        error:error
+      })
+    })
   }
 };

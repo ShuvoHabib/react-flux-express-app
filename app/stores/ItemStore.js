@@ -4,9 +4,9 @@ import helper from './../helpers/RestHelper';
 function groceryItemStore() {
   var items = [];
 
-  helper.get("api/v1/product/items")
-    .then((data)=> {
-      items = data;
+  helper.get("api/v1/products")
+    .then((response)=> {
+      items = response.data;
       triggerListeners();
     });
 
@@ -19,16 +19,18 @@ function groceryItemStore() {
   function addGroceryItem(item) {
     items.push(item);
     triggerListeners();
-
-    helper.post("api/v1/product/items", item);
+    helper.post("api/v1/products", item);
   }
 
   function deleteGroceryItem(item) {
     var index = items.findIndex((_item)=> {
       return _item.name == item.name
     });
-    items.splice(index, 1);
+
+    var item = items.splice(index, 1).pop();
+
     triggerListeners();
+    helper.delete(`api/v1/products/${item._id}`);
   }
 
   function setGroceryItemBought(item, isBought) {

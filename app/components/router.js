@@ -4,8 +4,8 @@ import {
   Route,
   browserHistory
 } from 'react-router';
-import Route404 from '../routes/404';
-import RouteHome from '../routes/home';
+import Route404 from './404';
+import RouteHome from './home';
 
 class AppRouter extends React.Component {
   constructor(props) {

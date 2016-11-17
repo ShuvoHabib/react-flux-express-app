@@ -1,20 +1,28 @@
 const express = require('express');
 const path = require('path');
-const port = process.env.PORT || 8081;
+
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 const app = express();
-var  items = require('./app/routes/items');
-var  parser = require('body-parser');
+const port = process.env.PORT || 8081;
+const productRoutes = require('./server/routes/items');
 const isDevelopment = process.argv.indexOf('--development') !== -1;
-app.use('/api/v1/product',items);
-app.use(parser.json());
-app.use(parser.urlencoded({extended:false}));
+
+app.use(urlencodedParser);
+app.use('/api/v1/products', productRoutes);
 
 if (isDevelopment) {
   const webpack = require('webpack');
   const webpackConfig = require('./webpack.config.js');
   const compiler = webpack(webpackConfig);
+
   app.use(require('webpack-dev-middleware')(compiler, {
     hot: true,
+    quiet: true,
     stats: {
       colors: true
     }
@@ -23,9 +31,9 @@ if (isDevelopment) {
 } else {
   app.use(express.static(__dirname + '/public'));
 }
-app.get('*', function (request, response) {
 
-  response.sendFile(__dirname + '/public/index.js');
+app.get('*', function (req, res) {
+  res.render(__dirname + '/server/views/404.ejs');
 });
 
 app.listen(port);
