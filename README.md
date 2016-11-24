@@ -1,7 +1,8 @@
-# React and Express
+# React-Flux-Express-Todo-APP
 
 ## Installation
-* `$ npm install`
+* `$ npm i -g yarn`
+* `$ yarn`
 
 ## Development
 * `$ npm run start`
